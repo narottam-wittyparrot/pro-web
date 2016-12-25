@@ -5,7 +5,7 @@
     <title>Narottam Dattatrey</title>
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/layouts/angular-material.layouts.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/layouts/angular-material.layouts-attributes.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/layouts/angular-material.layout-attributes.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -13,15 +13,59 @@
 
 <body>
     <div>
-        <h1>personal manager</h1>
+        <md-toolbar class="md-hue-2" style="background-color: beige;">
+            <div class="md-toolbar-tools">
+                <h2><span>Narottam Dattatrey</span></h2>
+            </div>
+        </md-toolbar>
         <div class="container" ng-controller="ContactController as ctrl">
-            <div class="row">
+            <!--  <div class="row">
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="contact in ctrl.contactDetails">{{contact.name +" "+ contact.email}}</li>
                 </ul>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-6" ng-controller="ContactController as ctrl">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="contact in ctrl.contactDetails">
+                            <md-card>
+                                <p class="col-md-12">Name :{{contact.name}}</p>
+                                <div layout="row">
+                                    <h4 class="col-md-4">Email:</h4>
+                                    <span class="col-md-6">{{contact.email}}</span></div>
+                            </md-card>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Example textarea</label>
+                <input class="form-control" id="exampleTextarea" rows="3" ng-model="blogPost"></input>
+                <button class="btn">Post</button>
+            </div>
+            <div ng-model="blogPost">{{blogPost}}</div>
         </div>
+        <div></div>
     </div>
+
+
+
+
+
+
+    
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBNSyuSEJlCEosxQ9Ul3a4zFjypOA03AQA",
+    authDomain: "pro-web-89cf2.firebaseapp.com",
+    databaseURL: "https://pro-web-89cf2.firebaseio.com",
+    storageBucket: "pro-web-89cf2.appspot.com",
+    messagingSenderId: "60219689121"
+  };
+  firebase.initializeApp(config);
+</script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.js">
     </script>
@@ -30,6 +74,7 @@
     <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
     <!-- <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="index.config.js"></script>
 </body>
 
 </html>

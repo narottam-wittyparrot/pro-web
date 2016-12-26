@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
+
+
+
 <html ng-app="WebApp">
 
 <head>
@@ -9,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
 </head>
 
 <body>
@@ -64,16 +68,15 @@
         messagingSenderId: "60219689121"
     };
     firebase.initializeApp(config);
-    
+
     console.log(config); // "[DEFAULT]"
     var ref = firebase.database().ref();
 
-ref.on("value", function(snapshot) {
-   console.log(snapshot.val());
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-
+    ref.on("value", function(snapshot) {
+        console.log(snapshot.val());
+    }, function(error) {
+        console.log("Error: " + error.code);
+    });
     </script>
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-auth.js"></script>
@@ -108,15 +111,67 @@ ref.on("value", function(snapshot) {
   };
   firebase.initializeApp(config);
 </script> -->
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<!--     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.js">
     </script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
-    <!-- <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+    <!-- <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript" src="index.config.js"></script>
 </body>
 
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Movie Fire</title>
+    <link rel="stylesheet" type="text/css" href="app/styles/app.css">
+</head>
+ 
+<body>
+    <h1>Movie Fire</h1>
+    <h3>Save all your Favorite Movies here</h3>
+    <hr />
+    <input type="text" id="movieName" placeholder="Enter your Favorite Movie Name" 
+           onkeypress="return saveToList(event)" />
+    <h4>My Favorite Movies</h4>
+    <ol id="favMovies">
+    </ol>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+ 
+</html> -->
+<!DOCTYPE html>
+<html ng-app="WebApp">
+ 
+<head>
+    <title>Narottam Dattatrey</title>
+    <link rel="stylesheet" type="text/css" href="app/styles/app.css">
+</head>
+ 
+<body ng-controller="MainController">
+    <h1>Movie Fire</h1>
+    <h3>Save all your Favorite Movies here</h3>
+    <hr />
+    <input type="text" id="movieName" placeholder="Enter your Favorite Movie Name"
+     ng-keypress="saveToList($event)" ng-model="mvName" />
+    <h4>My Favorite Movies</h4>
+    <ol id="favMovies">
+        <lable ng-hide="movies.length">Loading.. Please wait..</lable>
+        <li ng-repeat="movie in movies">{{movie.name}} [
+            <a href="javascript:" ng-click="edit($index)">Edit</a> |
+            <a href="#" ng-click="del($index)">Delete</a>]
+        </li>
+    </ol>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+ 
+    <script type="text/javascript" src="index.js"></script>
+</body>
+ 
 </html>

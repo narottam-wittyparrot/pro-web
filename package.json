@@ -1,7 +1,7 @@
 {
   "name": "pro-web",
   "version": "1.0.0",
-  "description": "This is my personal website",
+  "description": "Narottam Dattatrey's Website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/dattatrey93/pro-web.git"
   },
   "author": "narottam",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dattatrey93/pro-web/issues"
   },
